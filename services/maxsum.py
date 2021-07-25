@@ -16,7 +16,7 @@ class MaxSum(CustomHandler):
         """Get Max sum of subarray
         Eager algorithm to find and calculate the maximum subarray sum
         
-        :param array: 
+        :param array: array of numbers 
         """
         total_max = None
         local_max = 0
