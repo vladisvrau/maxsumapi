@@ -4,13 +4,25 @@ import json
 
 class MaxSum(CustomHandler):
     async def post(self):
-        body = json.loads(self.request.body)
-        result = self.get_max_sum_of_subarray(body['list'])
+        try:
+            body = json.loads(self.request.body)
+            
+            assert all([isinstance(item, (int, float)) for item in body['list']]), "A lista deve ser composta somente por números"
+            result = self.get_max_sum_of_subarray(body['list'])
+            
+            self.set_status(200)
+            self.write(json.dumps({"result": result}))
         
-        self.set_status(200)
-        self.write(json.dumps({"result": result}))
-        self.finish()
+        except AssertionError as ass:
+            self.set_status(400)
+            self.write(json.dumps({"message": ass}))
         
+        except Exception as exp:
+            self.set_status(500)
+            self.write(json.dumps({"message": "Erro interno no servidor"}))
+        
+        finally:
+            self.finish()
     
     def get_max_sum_of_subarray(self, array):
         """Get Max sum of subarray
