@@ -1,4 +1,8 @@
 # maxsumapi
+[![Python versions](https://img.shields.io/badge/Python-3.7-blue?logo=python&logoColor=white)](https://www.python.org/downloads/)
+[![Tornado Version](https://img.shields.io/badge/Tornado-6.0.3-blue)](https://www.tornadoweb.org/en/stable/)
+[![Docker](https://img.shields.io/badge/Docker-20.10.7-blue?logo=docker&logoColor=white)](https://www.docker.com/)
+
 prova online para a área de Back-end da Studio Sol. 
 
 ## Descrição
