@@ -35,14 +35,14 @@ class MaxSum(CustomHandler):
         
         :param array: array of numbers 
         """
-        total_max = None
+        global_max = None
         local_max = 0
 
         for item in array:
             local_max = local_max + item
-            if total_max is None or local_max > total_max:
-                total_max = local_max
+            if global_max is None or local_max > global_max:
+                global_max = local_max
             if local_max < 0:
                 local_max = 0
 
-        return total_max
+        return global_max
