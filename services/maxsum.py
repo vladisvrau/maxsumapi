@@ -1,4 +1,4 @@
-from ..utils.handler import CustomHandler
+from utils.handler import CustomHandler
 import json
 
 
@@ -7,9 +7,14 @@ class MaxSum(CustomHandler):
         try:
             body = json.loads(self.request.body)
             
+            # Exception Management
+            assert len(body.get('list', [])) > 0, "Lista inválida."
             assert all([isinstance(item, (int, float)) for item in body['list']]), "A lista deve ser composta somente por números"
+            
+            # Calculating Result
             result = self.get_max_sum_of_subarray(body['list'])
             
+            # Delivering the payload
             self.set_status(200)
             self.write(json.dumps({"result": result}))
         
